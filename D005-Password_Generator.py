@@ -16,19 +16,20 @@ nr_numbers = int(input(f"How many numbers would you like?\n"))
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
 
+passw_list = []
 passw = ""
-passw_remain = nr_letters + nr_numbers + nr_symbols
-ty = 0
 
-for i in range (0,passw_remain):
-  ty == random.randint(1,3)
-  if (ty == 1 and nr_letters!=0):
-    passw += letters[random.randint(0, 51)]
-    nr_letters -= 1
-  if (ty == 2 and nr_numbers!=0):
-    passw += numbers[random.randint(0, 9)]
-    nr_numbers -= 1
-  if (ty == 3 and nr_symbols!=0):
-    passw += symbols[random.randint(0, 8)]
-    nr_symbols -= 1
+for char in range (1, nr_letters +1):
+  passw_list.append(random.choice(letters))
+
+for char in range (1, nr_numbers +1):
+  passw_list.append(random.choice(numbers))
+
+for char in range (1, nr_symbols +1):
+  passw_list.append(random.choice(symbols))
+  
+sorted_list = sorted(passw_list, key = lambda x: random.random() )
+for char in sorted_list:
+  passw += char
+
 print(passw)
