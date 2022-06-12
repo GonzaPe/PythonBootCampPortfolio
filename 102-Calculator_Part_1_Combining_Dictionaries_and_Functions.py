@@ -1,6 +1,4 @@
 #from art import logo
-xyrg = "hello "
-print(type(x))
 #print(logo)
 
 def add(n1, n2):
